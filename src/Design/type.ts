@@ -1,5 +1,3 @@
-// import { ButtonStyle } from '../Buttons'
-
 import { TextStyle } from 'react-native';
 import { UniversalColorType } from './Library';
 
