@@ -1,0 +1,25 @@
+name: Move Jira Ticket on PR
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  move_jira_card:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract Jira Issue Key from Branch Name
+        id: extract_jira
+        run: |
+          echo "Branch name: ${{ github.head_ref }}"
+          JIRA_KEY=$(echo "${{ github.head_ref }}" | grep -oE '[A-Z]+-[0-9]+')
+          echo "jira_key=$JIRA_KEY" >> $GITHUB_ENV
+
+      - name: Send Webhook to Jira
+        if: env.jira_key != ''
+        run: |
+          curl -X POST "${{ secrets.JIRA_WEBHOOK_URL }}" \
+          -H "Content-Type: application/json" \
+          --data '{
+            "issue": "'"$JIRA_KEY"'"
+          }'
