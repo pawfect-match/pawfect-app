@@ -29,9 +29,9 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "./dist",
-    "rootDirs": ["./src"],
     "baseUrl": ".",
     "paths": {
+      "@src": ["./src"],
       "@images": ["./src/assets/images/index"],
       "@images/*": ["./src/assets/images/*"],
       "@design/*": ["./src/design/*"],

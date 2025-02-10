@@ -5,7 +5,7 @@
  * @format
  */
 
-import { Col } from '@design/StyleAsProps';
+import { Col, Row } from '@design/StyleAsProps';
 import React from 'react';
 import type { PropsWithChildren } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
@@ -58,7 +58,19 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Col bgNeutral90>Hellp</Col>
+          <Col bgNeutral10 mt2 ph40>
+            <Text>Hellp</Text>
+            <Text>Hellp</Text>
+            <Text>Hellp</Text>
+            <Text>Hellp</Text>
+          </Col>
+
+          <Row bgNeutral90>
+            <Text>Hellp</Text>
+            <Text>Hellp</Text>
+            <Text>Hellp</Text>
+            <Text>Hellp</Text>
+          </Row>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen and then come back to see your edits.
           </Section>

@@ -51,10 +51,10 @@ const IconSizeMap = {
 } as const;
 
 const ButtonSizeMap = {
-  small: 32,
-  medium: 40,
-  large: 48,
-  xlarge: 56,
+  small: 28,
+  medium: 32,
+  large: 40,
+  xlarge: 48,
 } as const;
 
 const TEXT_INPUT_SIZE_MAP = {

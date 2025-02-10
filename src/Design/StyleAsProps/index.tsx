@@ -8,6 +8,7 @@ import { withLayoutStyleProps } from './withStyleProps';
 
 export type DivPropsType = TouchableOpacityProps & LayoutType & LayoutColorType;
 
+//@ts-ignore
 const Div = withLayoutStyleProps<TouchableOpacityProps, TouchableOpacity>((props, ref) => {
   return <TouchableOpacity {...props} ref={ref} />;
 });
