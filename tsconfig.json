@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "lib": ["es6"],
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "lib": ["ES7"],
     "jsx": "react",
     /* type option */
     "experimentalDecorators": true,
@@ -48,16 +48,14 @@
       "@utilities": ["./src/utilities/index"],
       "@utilities/*": ["./src/utilities/*"],
       "@i18n": ["./src/i18n/index"],
-      "@classumDesign/*": ["./src/components/ClassumDesign/*"],
       "@services": ["./src/services/index"],
       "@atoms": ["./src/atoms"],
-      "@newClassumDesign/*": ["./src/components/NewClassumDesign/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@modules/*": ["./src/modules/*"],
       "@fullScreenModals/*": ["./src/modals/FullScreenModal/*"]
     },
-    "types": ["node", "mocha"],
-    "typeRoots": ["node_modules", "node_modules/@types", "/src/components/ClassumDesign/type.d.ts"]
+    "types": ["node"],
+    "typeRoots": ["node_modules", "node_modules/@types"]
   },
   "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"],
   "extends": "@react-native/typescript-config/tsconfig.json"

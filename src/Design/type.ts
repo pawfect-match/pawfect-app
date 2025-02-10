@@ -64,9 +64,4 @@ const TEXT_INPUT_SIZE_MAP = {
 type TEXT_INPUT_SIZE_MAP = (typeof TEXT_INPUT_SIZE_MAP)[keyof typeof TEXT_INPUT_SIZE_MAP];
 
 export { IconSizeMap, ButtonSizeMap, TEXT_INPUT_SIZE_MAP };
-export type {
-  TypographyType,
-  SpaceStyle,
-  //   ButtonType,
-  ComponentStyle,
-};
+export type { TypographyType, SpaceStyle, ComponentStyle };

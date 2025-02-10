@@ -1,6 +1,6 @@
 export const BrandColor = {
-  blue: '#395CB6',
-  yellow: '#FFF8E9',
+  ['brand-blue']: '#395CB6',
+  ['brand-yellow']: '#FFF8E9',
 };
 
 export const NeutralColor: { [key in `neutral-${0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100}`]: string } = {
