@@ -1,6 +1,6 @@
 import React from 'react';
 import { ColorValue } from 'react-native';
-import { AlertColor, BrandColor, NeutralColor } from '../Library';
+import { AlertColor, BrandColor, NeutralColor, SubColor } from '../Library';
 
 type numOrStr = number | string;
 type numOrTrue = number | true;
@@ -24,6 +24,7 @@ export const Colors = {
   AlertWarning: AlertColor['alert-warning'],
   AlertNormal: AlertColor['alert-normal'],
   AlertCritical: AlertColor['alert-critical'],
+  SubBlue: SubColor['sub-blue'],
 };
 
 const mapPropNumberToLayoutStyle = {
@@ -208,28 +209,33 @@ const mapPropToLayoutStyle = {
 };
 
 const mapPropToTextStyle = {
-  displayL: () => ({ fontSize: 57, letterSpacing: 0, lineHeight: 64, fontFamily: 'Montserrat-Bold' }),
-  displayM: () => ({ fontSize: 45, letterSpacing: 0, lineHeight: 52, fontFamily: 'Montserrat-Bold' }),
-  displayS: () => ({ fontSize: 40, letterSpacing: 0, lineHeight: 44, fontFamily: 'Montserrat-Bold' }),
-  headlineL: () => ({ fontSize: 32, letterSpacing: 0, lineHeight: 40, fontFamily: 'Montserrat-Bold' }),
-  headlineM: () => ({ fontSize: 28, letterSpacing: 0, lineHeight: 36, fontFamily: 'Montserrat-Bold' }),
-  headlineS: () => ({ fontSize: 24, letterSpacing: 0, lineHeight: 32, fontFamily: 'Montserrat-Bold' }),
-  titleXL: () => ({ fontSize: 20, letterSpacing: 0, lineHeight: 28, fontFamily: 'Montserrat-SemiBold' }),
-  titleL: () => ({ fontSize: 17, letterSpacing: 0, lineHeight: 28, fontFamily: 'Montserrat-SemiBold' }),
-  titleM: () => ({ fontSize: 15, letterSpacing: 0.15, lineHeight: 24, fontFamily: 'Montserrat-SemiBold' }),
-  titleS: () => ({ fontSize: 13, letterSpacing: 0.1, lineHeight: 20, fontFamily: 'Montserrat-SemiBold' }),
-  labelL: () => ({ fontSize: 14, letterSpacing: 0.1, lineHeight: 20, fontFamily: 'Montserrat-Bold' }),
-  labelM: () => ({ fontSize: 12, letterSpacing: 0.5, lineHeight: 16, fontFamily: 'Montserrat-Bold' }),
-  labelS: () => ({ fontSize: 10, letterSpacing: 0.5, lineHeight: 16, fontFamily: 'Montserrat-Bold' }),
-  bodyL: () => ({ fontSize: 15, letterSpacing: 0.15, lineHeight: 24, fontFamily: 'Montserrat-Regular' }),
-  bodyM: () => ({ fontSize: 13, letterSpacing: 0.15, lineHeight: 20, fontFamily: 'Montserrat-Regular' }),
-  bold: () => ({ fontFamily: 'Montserrat-Bold' }),
-  semiBold: () => ({ fontFamily: 'Montserrat-SemiBold' }),
+  displayL: () => ({ fontSize: 57, letterSpacing: 0, lineHeight: 64, fontFamily: 'IBMPlexSansKR-Bold' }),
+  displayM: () => ({ fontSize: 45, letterSpacing: 0, lineHeight: 52, fontFamily: 'IBMPlexSansKR-Bold' }),
+  displayS: () => ({ fontSize: 40, letterSpacing: 0, lineHeight: 44, fontFamily: 'IBMPlexSansKR-Bold' }),
+  headlineL: () => ({ fontSize: 32, letterSpacing: 0, lineHeight: 40, fontFamily: 'IBMPlexSansKR-Bold' }),
+  headlineM: () => ({ fontSize: 28, letterSpacing: 0, lineHeight: 36, fontFamily: 'IBMPlexSansKR-Bold' }),
+  headlineS: () => ({ fontSize: 24, letterSpacing: 0.1, lineHeight: 32, fontFamily: 'IBMPlexSansKR-Bold' }),
+  titleXL: () => ({ fontSize: 20, letterSpacing: 0, lineHeight: 28, fontFamily: 'IBMPlexSansKR-SemiBold' }),
+  titleL: () => ({ fontSize: 18, letterSpacing: 0, lineHeight: 28, fontFamily: 'IBMPlexSansKR-SemiBold' }),
+  titleM: () => ({ fontSize: 15, letterSpacing: 0.15, lineHeight: 24, fontFamily: 'IBMPlexSansKR-SemiBold' }),
+  titleS: () => ({ fontSize: 13, letterSpacing: 0.1, lineHeight: 20, fontFamily: 'IBMPlexSansKR-SemiBold' }),
+  subTitleXL: () => ({ fontSize: 20, letterSpacing: 0, lineHeight: 26, fontFamily: 'IBMPlexSansKR-Medium' }),
+  subTitleL: () => ({ fontSize: 18, letterSpacing: 0, lineHeight: 24, fontFamily: 'IBMPlexSansKR-Medium' }),
+  subTitleM: () => ({ fontSize: 15, letterSpacing: 0, lineHeight: 20, fontFamily: 'IBMPlexSansKR-Medium' }),
+  subTitleS: () => ({ fontSize: 13, letterSpacing: 0, lineHeight: 18, fontFamily: 'IBMPlexSansKR-Medium' }),
+  labelL: () => ({ fontSize: 15, letterSpacing: 0.3, lineHeight: 18, fontFamily: 'IBMPlexSansKR-Bold' }),
+  labelM: () => ({ fontSize: 13, letterSpacing: 0.4, lineHeight: 17, fontFamily: 'IBMPlexSansKR-Bold' }),
+  labelS: () => ({ fontSize: 11, letterSpacing: 0.4, lineHeight: 16, fontFamily: 'IBMPlexSansKR-Bold' }),
+  bodyL: () => ({ fontSize: 16, letterSpacing: 0.1, lineHeight: 24, fontFamily: 'IBMPlexSansKR-Regular' }),
+  bodyM: () => ({ fontSize: 14, letterSpacing: 0, lineHeight: 21, fontFamily: 'IBMPlexSansKR-Regular' }),
+  bodyS: () => ({ fontSize: 12, letterSpacing: 0.1, lineHeight: 18, fontFamily: 'IBMPlexSansKR-Regular' }),
+  bold: () => ({ fontFamily: 'IBMPlexSansKR-Bold' }),
+  semiBold: () => ({ fontFamily: 'IBMPlexSansKR-SemiBold' }),
+  medium: () => ({ fontFamily: 'IBMPlexSansKR-Medium' }),
   color: (v: ColorValue) => ({ color: v }),
   fontSize: (v: number) => ({ fontSize: v }),
   italic: () => ({ fontStyle: 'italic' }),
   weight: (v: number) => ({ fontWeight: v }),
-  // bold: () => ({ fontWeight: "bold" }),
   alignCenter: () => ({ textAlign: 'center' }),
   alignLeft: () => ({ textAlign: 'left' }),
   alignRight: () => ({ textAlign: 'right' }),

@@ -1,10 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { Text, TextProps, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 import { Col } from './Col';
 import { Row } from './Row';
 import { LayoutColorType, LayoutType } from './StyleProps';
-import { withLayoutStyleProps } from './withStyleProps';
+import { withLayoutStyleProps, withTextStyleProps } from './withStyleProps';
 
 export type DivPropsType = TouchableOpacityProps & LayoutType & LayoutColorType;
 
@@ -13,4 +13,8 @@ const Div = withLayoutStyleProps<TouchableOpacityProps, TouchableOpacity>((props
   return <TouchableOpacity {...props} ref={ref} />;
 });
 
-export { Div, Col, Row };
+const Span = withTextStyleProps<TextProps, Text>((props, ref) => {
+  return <Text {...props} ref={ref} />;
+});
+
+export { Div, Span, Col, Row };

@@ -5,7 +5,7 @@
  * @format
  */
 
-import { Col, Row } from '@design/StyleAsProps';
+import { Col, Row, Span } from '@design/StyleAsProps';
 import React from 'react';
 import type { PropsWithChildren } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
@@ -58,8 +58,8 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Col bgNeutral10 mt2 ph40>
-            <Text>Hellp</Text>
+          <Col bgNeutral80 mt2 ph40>
+            <Span bold>Hellp</Span>
             <Text>Hellp</Text>
             <Text>Hellp</Text>
             <Text>Hellp</Text>

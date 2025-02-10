@@ -1,6 +1,6 @@
 import React from 'react';
-import { Colors, LayoutType, mapPropNumberToLayoutStyle, mapPropToLayoutStyle, StyleComp, TextType } from './StyleProps';
-import { StyleProp, TouchableOpacityProps, ViewStyle } from 'react-native';
+import { Colors, LayoutType, mapPropNumberToLayoutStyle, mapPropToLayoutStyle, mapPropToTextStyle, StyleComp, TextType } from './StyleProps';
+import { StyleProp, TextProps, TextStyle, TouchableOpacityProps, ViewStyle } from 'react-native';
 
 const extractStylesFromComponent = (compOrArray: StyleComp, map: any, numberMap?: any) => {
   if (!Array.isArray(compOrArray)) compOrArray = [compOrArray];
@@ -95,4 +95,31 @@ const withLayoutStyleProps = <Props extends DefaultProps, RefType>(WrappedCompon
   });
 };
 
-export { toStyle, withLayoutStyleProps };
+const toTextStyle = (styleComp: React.ReactElement) => {
+  const { style, ...targetProps } = styleComp.props;
+  if (style) {
+    console.warn('StyleProps: toTextStyle ignore React Native style prop');
+  }
+  const defaultStyle = {
+    fontFamily: 'IBMPlexSansKR-Regular',
+  };
+  const [mergedStyles] = convertPropsToMergedStyles(targetProps, { ...mapPropToTextStyle, ...mapPropToLayoutStyle }, mapPropNumberToLayoutStyle);
+  return [defaultStyle, mergedStyles];
+};
+
+const withTextStyleProps = <Props extends { style?: StyleProp<TextStyle> }, RefType>(
+  WrappedComponent: React.ForwardRefRenderFunction<RefType, TextProps>,
+) => {
+  return React.forwardRef<RefType, Props & TextType & LayoutType>((props, ref) => {
+    const { style, ...targetProps } = props;
+    const defaultStyle: TextStyle = { color: Colors.Neutral10 };
+    const [mergedStyles, otherProps] = convertPropsToMergedStyles(
+      targetProps,
+      { ...mapPropToTextStyle, ...mapPropToLayoutStyle },
+      mapPropNumberToLayoutStyle,
+    );
+    return WrappedComponent({ ...otherProps, style: [defaultStyle, style, mergedStyles] }, ref);
+  });
+};
+
+export { toStyle, withLayoutStyleProps, toTextStyle, withTextStyleProps };
