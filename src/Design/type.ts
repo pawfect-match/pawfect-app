@@ -51,10 +51,10 @@ const IconSizeMap = {
 } as const;
 
 const ButtonSizeMap = {
-  small: 32,
-  medium: 40,
-  large: 48,
-  xlarge: 56,
+  small: 28,
+  medium: 32,
+  large: 40,
+  xlarge: 48,
 } as const;
 
 const TEXT_INPUT_SIZE_MAP = {
@@ -64,9 +64,4 @@ const TEXT_INPUT_SIZE_MAP = {
 type TEXT_INPUT_SIZE_MAP = (typeof TEXT_INPUT_SIZE_MAP)[keyof typeof TEXT_INPUT_SIZE_MAP];
 
 export { IconSizeMap, ButtonSizeMap, TEXT_INPUT_SIZE_MAP };
-export type {
-  TypographyType,
-  SpaceStyle,
-  //   ButtonType,
-  ComponentStyle,
-};
+export type { TypographyType, SpaceStyle, ComponentStyle };

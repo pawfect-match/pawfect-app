@@ -1,6 +1,6 @@
 export const BrandColor = {
-  blue: '#395CB6',
-  yellow: '#FFF8E9',
+  ['brand-blue']: '#395CB6',
+  ['brand-yellow']: '#FFF8E9',
 };
 
 export const NeutralColor: { [key in `neutral-${0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100}`]: string } = {
@@ -15,18 +15,18 @@ export const NeutralColor: { [key in `neutral-${0 & 10 & 20 & 30 & 40 & 50 & 60 
   ['neutral-80']: '#E0E2E7',
   ['neutral-90']: '#F7F8F9',
   ['neutral-100']: '#ffffff',
-};
+} as const;
 
 export const AlertColor = {
   ['alert-critical']: '#EC221F',
   ['alert-major']: '#FE9800',
   ['alert-minor']: '#FCD752',
   ['alert-normal']: '#14AE5C',
-};
+} as const;
 
 export const SubColor = {
   ['sub-blue']: '#222946',
-};
+} as const;
 
 export declare namespace TypographyColorType {
   type Key = 'neutral-10' | 'neutral-40' | 'neutral-60' | 'neutral-100';
