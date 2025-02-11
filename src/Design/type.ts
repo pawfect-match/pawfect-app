@@ -1,5 +1,5 @@
 import { TextStyle } from 'react-native';
-import { UniversalColorType } from './Library';
+import { UniversalColorType } from './library';
 
 declare namespace SpaceStyle {
   type Margin = number | Inset;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ColorValue } from 'react-native';
-import { AlertColor, BrandColor, NeutralColor, SubColor } from '../Library';
+import { AlertColor, BrandColor, NeutralColor, SubColor } from '../library';
 
 type numOrStr = number | string;
 type numOrTrue = number | true;
