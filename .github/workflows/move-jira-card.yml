@@ -12,8 +12,13 @@ jobs:
         id: extract_jira
         run: |
           echo "Branch name: ${{ github.head_ref }}"
-          JIRA_KEY=$(echo "${{ github.head_ref }}" | grep -oE '[A-Z]+-[0-9]+')
+          JIRA_KEY=$(echo "${{ github.head_ref }}" | grep -oE '[A-Z]+-[0-9]+' | head -n 1)
+          echo "Extracted JIRA Key: $JIRA_KEY"
           echo "jira_key=$JIRA_KEY" >> $GITHUB_ENV
+
+      - name: Debug Output
+        run: |
+          echo "JIRA Key extracted: $jira_key"
 
       - name: Send Webhook to Jira
         if: env.jira_key != ''
@@ -21,5 +26,5 @@ jobs:
           curl -X POST "${{ secrets.JIRA_WEBHOOK_URL }}" \
           -H "Content-Type: application/json" \
           --data '{
-            "issue": "'"$JIRA_KEY"'"
+            "issue": "'"$jira_key"'"
           }'

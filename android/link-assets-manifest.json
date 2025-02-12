@@ -32,6 +32,18 @@
     {
       "path": "src/assets/fonts/OFL.txt",
       "sha1": "f6d106a4ddb0d602884564cf3e1c648503082142"
+    },
+    {
+      "path": "src/assets/icons/icomoon.ttf",
+      "sha1": "55238fd1829d4cd6f71e52d1b9cc03400c7ae695"
+    },
+    {
+      "path": "src/assets/icons/index.ts",
+      "sha1": "98e93cb0cb3fc7987b6ba16263d460b70424cfb9"
+    },
+    {
+      "path": "src/assets/icons/selection.json",
+      "sha1": "91ac2d1228e1b172e46e8a4969de4f4e3c4c8287"
     }
   ]
 }
