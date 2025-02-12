@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from '@react-native-vector-icons/ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { Row, Span } from '@design/styleAsProps';
 import { HardwareInfo } from '@utilities/HardwareInfo';
@@ -35,6 +35,8 @@ const ClientTabBar = ({ state, descriptors, navigation }) => {
         const isFocused = state.index === index;
         const hasText = Dimensions.get('window').width >= 360;
 
+        console.log(descriptors);
+
         const onPress = () => {
           const event = navigation.emit({
             type: 'tabPress',
@@ -56,6 +58,7 @@ const ClientTabBar = ({ state, descriptors, navigation }) => {
 
         return (
           <TouchableOpacity
+            key={route.key}
             onPress={onPress}
             accessibilityRole="button"
             accessibilityLabel={accessibilityLabel()}
@@ -72,17 +75,17 @@ const ClientTabBar = ({ state, descriptors, navigation }) => {
 const ClientTabBarIcon = (props: { focused: boolean; name: string }) => {
   switch (props.name) {
     case 'Home':
-      if (props.focused) return <Icon name="home-outline" size={24} color={NeutralColor['neutral-0']} />;
-      else return <Icon name="home" size={24} color={BrandColor['brand-blue']} />;
+      if (props.focused) return <Ionicons name="home" size={24} color={BrandColor['brand-blue']} />;
+      else return <Ionicons name="home-outline" size={24} color={NeutralColor['neutral-0']} />;
     case 'Messages':
-      if (props.focused) return <Icon name="chatbox-outline" size={24} color={NeutralColor['neutral-0']} />;
-      else return <Icon name="chatbox-ellipses" size={24} color={BrandColor['brand-blue']} />;
+      if (props.focused) return <Ionicons name="chatbox-ellipses" size={24} color={BrandColor['brand-blue']} />;
+      else return <Ionicons name="chatbox-outline" size={24} color={NeutralColor['neutral-0']} />;
     case 'Reservations':
-      if (props.focused) return <Icon name="time-outline" size={24} color={NeutralColor['neutral-0']} />;
-      else return <Icon name="time" size={24} color={BrandColor['brand-blue']} />;
+      if (props.focused) return <Ionicons name="time" size={24} color={BrandColor['brand-blue']} />;
+      else return <Ionicons name="time-outline" size={24} color={NeutralColor['neutral-0']} />;
     case 'Settings':
-      if (props.focused) return <Icon name="settings-outline" size={24} color={NeutralColor['neutral-0']} />;
-      else return <Icon name="settings" size={24} color={BrandColor['brand-blue']} />;
+      if (props.focused) return <Ionicons name="settings" size={24} color={BrandColor['brand-blue']} />;
+      else return <Ionicons name="settings-outline" size={24} color={NeutralColor['neutral-0']} />;
     default:
       return null;
   }

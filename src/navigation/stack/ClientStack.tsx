@@ -2,7 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { ClientStackParamList } from '@navigation/type';
-import { ClientNavigationBar } from '@navigation/bottomTab/ClientNavitationBar';
+import { ClientNavigationBar } from '@navigation/bottomTab/ClientNavigationBar';
 
 const ClientStack = createNativeStackNavigator<ClientStackParamList>();
 
