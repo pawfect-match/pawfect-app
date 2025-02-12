@@ -10,10 +10,10 @@
     "emitDecoratorMetadata": true,
     "strict": true,
     "noImplicitAny": false,
+    "noImplicitThis": false,
     "strictNullChecks": false,
     "strictBindCallApply": false,
     "strictPropertyInitialization": false,
-    "noImplicitThis": false,
     /* code help */
     "noUnusedLocals": false,
     "noUnusedParameters": true,
@@ -29,6 +29,7 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "./dist",
+    "rootDirs": ["./src"],
     "baseUrl": ".",
     "paths": {
       "@src": ["./src"],
@@ -39,7 +40,6 @@
       "@constants/*": ["./src/constants/*"],
       "@entities/*": ["./src/entities/*"],
       "@managers/*": ["./src/managers/*"],
-      "@navigators/*": ["./src/navigators/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@repositories/*": ["./src/repositories/*"],
       "@screens/*": ["./src/screens/*"],
