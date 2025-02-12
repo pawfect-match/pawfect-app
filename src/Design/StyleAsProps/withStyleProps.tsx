@@ -1,6 +1,6 @@
 import React from 'react';
-import { Colors, LayoutType, mapPropNumberToLayoutStyle, mapPropToLayoutStyle, mapPropToTextStyle, StyleComp, TextType } from './StyleProps';
 import { StyleProp, TextProps, TextStyle, TouchableOpacityProps, ViewStyle } from 'react-native';
+import { Colors, LayoutType, StyleComp, TextType, mapPropNumberToLayoutStyle, mapPropToLayoutStyle, mapPropToTextStyle } from './StyleProps';
 
 const extractStylesFromComponent = (compOrArray: StyleComp, map: any, numberMap?: any) => {
   if (!Array.isArray(compOrArray)) compOrArray = [compOrArray];

@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 
 import { TypographyType, SpaceStyle } from '../type';
-import { UniversalColorType } from '../Library';
+import { UniversalColorType } from '../library';
 
 const TextSize = {
   HeadlineL: 32,

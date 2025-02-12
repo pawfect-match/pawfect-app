@@ -3,8 +3,8 @@ import { Text, TextProps, TouchableOpacity, TouchableOpacityProps } from 'react-
 
 import { Col } from './Col';
 import { Row } from './Row';
+import { withLayoutStyleProps, withTextStyleProps } from './WithStyleProps';
 import { LayoutColorType, LayoutType } from './StyleProps';
-import { withLayoutStyleProps, withTextStyleProps } from './withStyleProps';
 
 export type DivPropsType = TouchableOpacityProps & LayoutType & LayoutColorType;
 

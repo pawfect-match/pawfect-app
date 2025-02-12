@@ -1,1 +1,1 @@
-export * from '@design/Typography/Typography';
+export * from '@design/typography/Typography';
