@@ -12,7 +12,7 @@ module.exports = {
           '@components': './src/components',
           '@managers': './src/managers',
           '@navigation': './src/navigation',
-          // '@screens': './src/screens',
+          '@screens': './src/screens',
           '@utilities': './src/utilities',
           // '@i18n': './src/i18n',
           // '@modules': './src/modules',
