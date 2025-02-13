@@ -64,7 +64,11 @@ const ClientTabBar = ({ state, descriptors, navigation }) => {
             accessibilityLabel={accessibilityLabel()}
             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <ClientTabBarIcon focused={isFocused} name={route.name} />
-            {hasText && <Span labelS>{route?.name}</Span>}
+            {hasText && (
+              <Span labelS color={isFocused ? BrandColor['brand-blue'] : NeutralColor['neutral-0']}>
+                {route?.name}
+              </Span>
+            )}
           </TouchableOpacity>
         );
       })}
