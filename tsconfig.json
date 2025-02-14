@@ -43,8 +43,6 @@
       "@navigation/*": ["./src/navigation/*"],
       "@repositories/*": ["./src/repositories/*"],
       "@screens/*": ["./src/screens/*"],
-      "@stores": ["./src/stores/index"],
-      "@stores/*": ["./src/stores/*"],
       "@utilities": ["./src/utilities/index"],
       "@utilities/*": ["./src/utilities/*"],
       "@i18n": ["./src/i18n/index"],
