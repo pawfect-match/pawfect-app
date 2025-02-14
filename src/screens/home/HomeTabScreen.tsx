@@ -20,7 +20,7 @@ const data = [
   {
     id: 1,
     title: '가정방문 돌봄',
-    description: '시터가 반려동물이 있는 가정으로 방문해요.',
+    description: '시터가 반려동물 집으로 와요.',
     logo: <CustomIcon xLarge48DropInVisit />,
   },
   {
@@ -79,40 +79,27 @@ const HomeTabScreen = ({ navigation, route }) => {
    * render
    *********/
 
+  const renderTitle = () => {
+    return <Span headlineM>서비스를 선택해주세요.</Span>;
+  };
+
   const renderItem = ({ item }) => {
     return <HomeServiceCard title={item.title} description={item.description} logo={item.logo} />;
   };
 
   const renderFlatList = () => {
-    return <FlatList data={data} renderItem={renderItem} keyExtractor={(item, index) => `home-tab-selection-${index}`} />;
+    return <FlatList data={data} renderItem={renderItem} keyExtractor={(item, index) => `home-tab-selection-${index}`} style={{}} />;
   };
 
-  const renderSelection = () => {
-    return (
-      <Col ph6 mt20>
-        <Row bgNeutral100 radius12 ph16 pv12 alignCenter justifyBetween shadowColor={NeutralColor['neutral-50']} shadowOpacity={0.3} shadowRadius={3}>
-          <Row>
-            <CustomIcon name="drop-in-visit-icon" size={36} color={BrandColor['brand-blue']} />
-            <Col ml10 w250>
-              <Span subTitleS>가정방문 돌봄 서비스</Span>
-              <Span bodyS colorNeutral40 mt4 numberOfLines={1}>
-                시터가 가정으로 방문해서 아이를 돌봐주는 서비스 dflkajfkdsakjflkd
-              </Span>
-            </Col>
-          </Row>
-          <Ionicons name="chevron-forward" size={24} />
-        </Row>
-      </Col>
-    );
-  };
   /***********
    * render()
    ***********/
 
   return (
-    <CustomSafeAreaView>
-      <Col ph18>{renderFlatList()}</Col>
-    </CustomSafeAreaView>
+    <Col ph16 pv20>
+      {renderTitle()}
+      <Col mt20>{renderFlatList()}</Col>
+    </Col>
   );
 };
 
