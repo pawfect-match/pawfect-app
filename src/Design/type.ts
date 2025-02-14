@@ -50,6 +50,35 @@ const IconSizeMap = {
   xlarge: 48,
 } as const;
 
+declare namespace IconType {
+  type ImageSource = string | number;
+  type ImageSourceOfState = { enabled: ImageSource; pressed?: ImageSource; selected?: ImageSource; disabled?: ImageSource };
+  type IconSource = ImageSource | ImageSourceOfState;
+  type Style = { aspectRatio?: number; width: number | '100%'; height: number | '100%' };
+  type Position = 'left' | 'right';
+  type Shape = 'circle' | 'square';
+  interface Attr {
+    size?: ComponentStyle.SizeWithObject;
+    src: IconSource;
+    position?: Position;
+    shape?: Shape;
+    data?: IconExtraData;
+    state?: ComponentStyle.State;
+  }
+
+  interface AttrWithOnPress extends Attr {
+    disable?: boolean;
+    onPress?: (e?) => void;
+  }
+
+  interface IconExtraData {
+    count: number;
+    label?: string;
+    isSelected?: boolean;
+    isDisabled?: boolean;
+  }
+}
+
 const ButtonSizeMap = {
   small: 28,
   medium: 32,
@@ -64,4 +93,4 @@ const TEXT_INPUT_SIZE_MAP = {
 type TEXT_INPUT_SIZE_MAP = (typeof TEXT_INPUT_SIZE_MAP)[keyof typeof TEXT_INPUT_SIZE_MAP];
 
 export { IconSizeMap, ButtonSizeMap, TEXT_INPUT_SIZE_MAP };
-export type { TypographyType, SpaceStyle, ComponentStyle };
+export type { TypographyType, SpaceStyle, ComponentStyle, IconType };
