@@ -21,7 +21,7 @@ export const Colors = {
   Neutral90: NeutralColor['neutral-90'],
   Neutral100: NeutralColor['neutral-100'],
   AlertMinor: AlertColor['alert-minor'],
-  AlertWarning: AlertColor['alert-warning'],
+  AlertMajor: AlertColor['alert-major'],
   AlertNormal: AlertColor['alert-normal'],
   AlertCritical: AlertColor['alert-critical'],
   SubBlue: SubColor['sub-blue'],

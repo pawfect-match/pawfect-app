@@ -29,7 +29,7 @@ const ClientTabBar = ({ state, descriptors, navigation }) => {
   if (displayOptions?.tabBarStyle?.display === 'none') return null;
 
   return (
-    <Row h65 bgNeutral100 ph12 mb={HardwareInfo.hasNotch ? 20 : 0}>
+    <Row h={HardwareInfo.hasNotch ? 85 : 65} bgNeutral100 ph12 pb={HardwareInfo.hasNotch ? 20 : 0}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const isFocused = state.index === index;
