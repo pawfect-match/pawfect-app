@@ -1,0 +1,19 @@
+{
+  "common-next": "Next",
+  "common-boarding": "Boarding",
+  "common-drop-in-visit": "Drop-in Visit",
+  "common-dog-walking": "Dog Walking",
+  "common-grooming": "Pet Grooming",
+  "common-vet-companion": "Vet Companion",
+  "common-sitter": "Sitter",
+  "service-boarding-description": "Your pet goes to the sitter's place.",
+  "client-select-service": "Select a service.",
+  "service-drop-in-visit-description": "Sitter comes to your place.",
+  "service-dog-walking-description": "Walks near your pets place.",
+  "service-grooming-description": "Grooming at the sitter's place.",
+  "service-vet-companion-description": "Pawdians accompany pets to the vet.",
+  "bottom-tab-home": "Home",
+  "bottom-tab-messages": "Messages",
+  "bottom-tab-reservations": "Reservations",
+  "bottom-tab-settings": "Settings"
+}

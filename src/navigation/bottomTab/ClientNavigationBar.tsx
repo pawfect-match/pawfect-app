@@ -10,16 +10,17 @@ import HomeTabScreen from '@screens/home/HomeTabScreen';
 import MessagesTabScreen from '@screens/messages/MessagesTabScreen';
 import ReservationsTabScreen from '@screens/reservations/ReservationsTabScreen';
 import SettingsTabScreen from '@screens/settings/SettingsTabScreen';
+import i18n from '@locales';
 
 const ClientBottomTab = createBottomTabNavigator();
 
 export const ClientNavigationBar = () => {
   return (
     <ClientBottomTab.Navigator tabBar={props => <ClientTabBar {...props} />} screenOptions={{ headerShown: false }}>
-      <ClientBottomTab.Screen name="Home" component={HomeTabScreen} />
-      <ClientBottomTab.Screen name="Messages" component={MessagesTabScreen} />
-      <ClientBottomTab.Screen name="Reservations" component={ReservationsTabScreen} />
-      <ClientBottomTab.Screen name="Settings" component={SettingsTabScreen} />
+      <ClientBottomTab.Screen name={i18n.t('bottom-tab-home')} component={HomeTabScreen} />
+      <ClientBottomTab.Screen name={i18n.t('bottom-tab-messages')} component={MessagesTabScreen} />
+      <ClientBottomTab.Screen name={i18n.t('bottom-tab-reservations')} component={ReservationsTabScreen} />
+      <ClientBottomTab.Screen name={i18n.t('bottom-tab-settings')} component={SettingsTabScreen} />
     </ClientBottomTab.Navigator>
   );
 };
@@ -78,16 +79,16 @@ const ClientTabBar = ({ state, descriptors, navigation }) => {
 
 const ClientTabBarIcon = (props: { focused: boolean; name: string }) => {
   switch (props.name) {
-    case 'Home':
+    case i18n.t('bottom-tab-home'):
       if (props.focused) return <Ionicons name="home" size={24} color={BrandColor['brand-blue']} />;
       else return <Ionicons name="home-outline" size={24} color={NeutralColor['neutral-0']} />;
-    case 'Messages':
+    case i18n.t('bottom-tab-messages'):
       if (props.focused) return <Ionicons name="chatbox-ellipses" size={24} color={BrandColor['brand-blue']} />;
       else return <Ionicons name="chatbox-outline" size={24} color={NeutralColor['neutral-0']} />;
-    case 'Reservations':
+    case i18n.t('bottom-tab-reservations'):
       if (props.focused) return <Ionicons name="time" size={24} color={BrandColor['brand-blue']} />;
       else return <Ionicons name="time-outline" size={24} color={NeutralColor['neutral-0']} />;
-    case 'Settings':
+    case i18n.t('bottom-tab-settings'):
       if (props.focused) return <Ionicons name="settings" size={24} color={BrandColor['brand-blue']} />;
       else return <Ionicons name="settings-outline" size={24} color={NeutralColor['neutral-0']} />;
     default:

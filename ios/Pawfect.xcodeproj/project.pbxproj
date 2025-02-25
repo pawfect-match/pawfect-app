@@ -18,8 +18,6 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		87600DCF34194338BE4F2882 /* IBMPlexSansKR-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67943409B0246ADB201CEA0 /* IBMPlexSansKR-SemiBold.ttf */; };
 		88AD64E7E9634931B56AD554 /* IBMPlexSansKR-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03E4F045C561421FB62E56FD /* IBMPlexSansKR-Thin.ttf */; };
-		9727A14FCD174D23A280D9D0 /* selection.json in Resources */ = {isa = PBXBuildFile; fileRef = E94FF4CEE1484614980C8873 /* selection.json */; };
-		BA934E6F7C9D41228BAC50F7 /* index.ts in Resources */ = {isa = PBXBuildFile; fileRef = D19EA311541C4EB78680248B /* index.ts */; };
 		C5E6D09FE1B2692E0837CADF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		F2BD95AA9AC343D5AAF556F3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 530A6EBA904C4EA1A094A949 /* OFL.txt */; };
 /* End PBXBuildFile section */
@@ -41,8 +39,6 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Pawfect/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4CD2D6FCD8442F0A30AB3FD /* IBMPlexSansKR-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSansKR-Medium.ttf"; path = "../src/assets/fonts/IBMPlexSansKR-Medium.ttf"; sourceTree = "<group>"; };
 		C67943409B0246ADB201CEA0 /* IBMPlexSansKR-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSansKR-SemiBold.ttf"; path = "../src/assets/fonts/IBMPlexSansKR-SemiBold.ttf"; sourceTree = "<group>"; };
-		D61A74321C11421BA979E2C2 /* icomoon.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icomoon.ttf; path = ../src/assets/icons/icomoon.ttf; sourceTree = "<group>"; };
-		E94FF4CEE1484614980C8873 /* selection.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = selection.json; path = ../src/assets/icons/selection.json; sourceTree = "<group>"; };
 		EACC60838E8049B6AD1E3269 /* IBMPlexSansKR-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSansKR-Bold.ttf"; path = "../src/assets/fonts/IBMPlexSansKR-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
