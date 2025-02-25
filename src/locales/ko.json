@@ -1,0 +1,19 @@
+{
+  "common-next": "다음",
+  "common-boarding": "위탁 돌봄",
+  "common-drop-in-visit": "가정방문 돌봄",
+  "common-dog-walking": "강아지 산책",
+  "common-grooming": "미용/그루밍",
+  "common-vet-companion": "병원 동행",
+  "common-sitter": "시터",
+  "service-boarding-description": "반려동물이 시터 집으로 가요.",
+  "client-select-service": "서비스를 선택해주세요.",
+  "service-drop-in-visit-description": "시터가 반려동물 집으로 와요.",
+  "service-dog-walking-description": "강아지의 동네에서 산책해요.",
+  "service-grooming-description": "그루머 집에서 미용/그루밍을 해요.",
+  "service-vet-companion-description": "돌보미가 병원에 대신/같이 가줘요.",
+  "bottom-tab-home": "홈",
+  "bottom-tab-messages": "메시지",
+  "bottom-tab-reservations": "예약",
+  "bottom-tab-settings": "설정"
+}

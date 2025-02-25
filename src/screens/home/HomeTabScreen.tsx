@@ -7,38 +7,39 @@ import { Col, Row, Span } from '@design/styleAsProps';
 import CustomSafeAreaView from '@design/CustomSafeAreaView';
 import HomeServiceCard, { HomeServiceCardProps } from './components/HomeServiceCard';
 import { CustomIcon } from '@components/CustomIcon';
+import i18n from '@locales';
 
 interface Props {}
 
 const data = [
   {
     id: 0,
-    title: '위탁 돌봄',
-    description: '반려동물이 시터 집으로 가요.',
+    title: i18n.t('common-boarding'),
+    description: i18n.t('service-boarding-description'),
     logo: <CustomIcon xLarge48PetBoarding />,
   },
   {
     id: 1,
-    title: '가정방문 돌봄',
-    description: '시터가 반려동물 집으로 와요.',
+    title: i18n.t('common-drop-in-visit'),
+    description: i18n.t('service-drop-in-visit-description'),
     logo: <CustomIcon xLarge48DropInVisit />,
   },
   {
     id: 2,
-    title: '강아지 산책',
-    description: '시터가 강이자와 함께 산책해요.',
+    title: i18n.t('common-dog-walking'),
+    description: i18n.t('service-dog-walking-description'),
     logo: <CustomIcon xLarge48DogWalking />,
   },
   {
     id: 3,
-    title: '미용/그루밍',
-    description: '미용과 그루밍을 대신 해줘요.',
+    title: i18n.t('common-grooming'),
+    description: i18n.t('service-grooming-description'),
     logo: <CustomIcon xLarge48PetGrooming />,
   },
   {
     id: 4,
-    title: '병원 동행',
-    description: '시터가 병원에 대신 가줘요.',
+    title: i18n.t('common-vet-companion'),
+    description: i18n.t('service-vet-companion-description'),
     logo: <CustomIcon xLarge48VetCare />,
   },
 ];
@@ -80,7 +81,7 @@ const HomeTabScreen = ({ navigation, route }) => {
    *********/
 
   const renderTitle = () => {
-    return <Span headlineM>서비스를 선택해주세요.</Span>;
+    return <Span headlineM>{i18n.t('client-select-service')}</Span>;
   };
 
   const renderItem = ({ item }) => {
