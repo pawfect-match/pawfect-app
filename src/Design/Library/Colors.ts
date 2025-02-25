@@ -15,6 +15,7 @@ export const NeutralColor: { [key in `neutral-${0 & 10 & 20 & 30 & 40 & 50 & 60 
   ['neutral-80']: '#E0E2E7',
   ['neutral-90']: '#F7F8F9',
   ['neutral-100']: '#ffffff',
+  ['transparent']: 'transparent',
 } as const;
 
 export const AlertColor = {

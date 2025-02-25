@@ -1,14 +1,17 @@
+import { NeutralColor } from '@design/library';
 import { Row, Span } from '@design/styleAsProps';
+import { Colors } from '@design/styleAsProps/StyleProps';
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 interface HeaderProps {
   title?: string;
   backButton?: boolean;
+  backgroundColor?: typeof Colors;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, backButton = true }: HeaderProps) => {
+const Header: React.FC<HeaderProps> = ({ title, backButton = true, backgroundColor }: HeaderProps) => {
   /*********
    * recoil
    *********/
@@ -53,10 +56,11 @@ const Header: React.FC<HeaderProps> = ({ title, backButton = true }: HeaderProps
    ***********/
 
   return (
-    <Row>
-      {backButton ? <Ionicons name="chevron-backward" size={24} /> : <></>}
-
-      <Span titleXL>{title}</Span>
+    <Row bg={backgroundColor || NeutralColor['transparent']} pv10>
+      {backButton ? <Ionicons name="chevron-back-outline" size={24} /> : <></>}
+      <Span ml12 titleXL>
+        {title || ''}
+      </Span>
     </Row>
   );
 };
