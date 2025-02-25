@@ -8,16 +8,16 @@ export const LanguageCode = {
 export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 const i18n = new I18n();
-
 i18n.translations = {
   en: require('./en.json'),
   ko: require('./ko.json'),
 };
 
 i18n.enableFallback = true;
+i18n.defaultLocale = LanguageCode.ko;
 
 export const setI18nLocale = (languageCode: LanguageCode) => {
-  i18n.locale = Object.values(LanguageCode).includes(languageCode) ? languageCode : LanguageCode.en;
+  i18n.locale = Object.values(LanguageCode).includes(languageCode) ? languageCode : LanguageCode.ko;
 };
 
 export const setDeviceLocaleCodeToLangModule = () => {
@@ -26,7 +26,7 @@ export const setDeviceLocaleCodeToLangModule = () => {
   if (bestMatch?.languageTag) {
     setI18nLocale(bestMatch.languageTag as LanguageCode);
   } else {
-    setI18nLocale(LanguageCode.en); // Default to English if no match
+    setI18nLocale(LanguageCode.ko);
   }
 };
 
