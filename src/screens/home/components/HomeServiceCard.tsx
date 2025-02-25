@@ -89,12 +89,12 @@ const HomeServiceCard: React.FC<HomeServiceCardProps> = (props: HomeServiceCardP
    ***********/
 
   return (
-    <TouchableOpacity>
+    <Col>
       <Row flex radius12 ph16 pv14 mb14 shadowColor={NeutralColor['neutral-50']} style={styles.shadow} alignCenter bgNeutral100 justifyBetween>
         {renderLeftSide()}
         {renderRightSide()}
       </Row>
-    </TouchableOpacity>
+    </Col>
   );
 };
 
