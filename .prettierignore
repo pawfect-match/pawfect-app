@@ -1,4 +1,5 @@
 /android
 /config
 /ios
-/src/i18n
+/src/locales
+vendor/bundle/
