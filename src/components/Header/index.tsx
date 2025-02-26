@@ -1,6 +1,7 @@
 import { NeutralColor } from '@design/library';
 import { Row, Span } from '@design/styleAsProps';
 import { Colors } from '@design/styleAsProps/StyleProps';
+import { PawfectNavigationModule } from '@navigation/index';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -47,17 +48,23 @@ const Header: React.FC<HeaderProps> = ({ title, backButton = true, backgroundCol
    * render
    *********/
 
-  // if (isRendering === true) {
-  // return null
-  // }
-
+  const renderBackButton = () => {
+    if (backButton) {
+      return (
+        <TouchableOpacity onPress={() => PawfectNavigationModule.pop()}>
+          <Ionicons name="chevron-back-outline" size={24} />
+        </TouchableOpacity>
+      );
+    }
+    return <></>;
+  };
   /***********
    * render()
    ***********/
 
   return (
     <Row bg={backgroundColor || NeutralColor['transparent']} pv10>
-      {backButton ? <Ionicons name="chevron-back-outline" size={24} /> : <></>}
+      {renderBackButton()}
       <Span ml12 titleXL>
         {title || ''}
       </Span>

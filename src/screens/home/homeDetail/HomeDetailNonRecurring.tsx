@@ -47,11 +47,9 @@ const HomeDetailNonRecurring = ({ navigation, route }: NativeStackScreenProps<Cl
    ***********/
 
   return (
-    <Col flex bgAlertMajor>
+    <Col>
       {renderHeader()}
-      <Col flex bgAlertCritical>
-        Hellp
-      </Col>
+      <Col></Col>
     </Col>
   );
 };

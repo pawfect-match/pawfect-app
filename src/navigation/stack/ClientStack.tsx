@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { ClientStackParamList } from '@navigation/type';
 import { ClientNavigationBar } from '@navigation/bottomTab/ClientNavigationBar';
-import HomeDetailNonRecurring from '@screens/home/homeDetail/homeDetailNonRecurring';
+import HomeDetailNonRecurring from '@screens/home/homeDetail/HomeDetailNonRecurring';
 import HomeDetailRecurring from '@screens/home/homeDetail/HomeDetailRecurring';
 
 const ClientStack = createNativeStackNavigator<ClientStackParamList>();
