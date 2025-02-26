@@ -1,4 +1,4 @@
-import Header from '@components/Header';
+import Header from '@components/Header/BigHeader';
 import { Col } from '@design/styleAsProps';
 import { ClientStackParamList } from '@navigation/type';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';

@@ -5,15 +5,17 @@
   "common-dog-walking": "Dog Walking",
   "common-grooming": "Pet Grooming",
   "common-vet-companion": "Vet Companion",
-  "common-sitter": "Sitter",
-  "service-boarding-description": "Your pet goes to the sitter's place.",
+  "common-sitter": "Pawbuddy",
+  "service-boarding-description": "Pawz go to pawbuddy's place.",
   "client-select-service": "Select a service.",
-  "service-drop-in-visit-description": "Sitter comes to your place.",
-  "service-dog-walking-description": "Walks near your pets place.",
-  "service-grooming-description": "Grooming at the sitter's place.",
+  "service-drop-in-visit-description": "Pawbuddy comes to your place.",
+  "service-dog-walking-description": "Walks near pawz's place.",
+  "service-grooming-description": "Grooming at the pawbuddy's place.",
   "service-vet-companion-description": "Pawdians accompany pets to the vet.",
   "bottom-tab-home": "Home",
   "bottom-tab-messages": "Messages",
   "bottom-tab-reservations": "Reservations",
-  "bottom-tab-settings": "Settings"
+  "bottom-tab-settings": "Settings",
+  "common-all-messages": "All Messages",
+  "common-archived-messages": "Archived Messsages"
 }

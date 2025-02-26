@@ -89,8 +89,8 @@ const ClientTabBarIcon = (props: { focused: boolean; name: string }) => {
       if (props.focused) return <Ionicons name="time" size={24} color={BrandColor['brand-blue']} />;
       else return <Ionicons name="time-outline" size={24} color={NeutralColor['neutral-0']} />;
     case i18n.t('bottom-tab-settings'):
-      if (props.focused) return <Ionicons name="settings" size={24} color={BrandColor['brand-blue']} />;
-      else return <Ionicons name="settings-outline" size={24} color={NeutralColor['neutral-0']} />;
+      if (props.focused) return <Ionicons name="ellipsis-horizontal" size={24} color={BrandColor['brand-blue']} />;
+      else return <Ionicons name="ellipsis-horizontal-outline" size={24} color={NeutralColor['neutral-0']} />;
     default:
       return null;
   }
