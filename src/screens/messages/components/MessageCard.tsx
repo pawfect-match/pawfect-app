@@ -50,11 +50,7 @@ const MessageCard = ({ profilePic, ownerName, petName, lastMessage, date }: Mess
    *********/
 
   const renderProfile = () => {
-    return (
-      <Col radius18 overflowHidden>
-        <CustomImage src={profilePic} size={'xLarge'} resize="cover" />
-      </Col>
-    );
+    return <CustomImage src={profilePic} size={'xLarge'} resize="cover" shape="circle" />;
   };
 
   const renderInformation = () => {
@@ -77,14 +73,18 @@ const MessageCard = ({ profilePic, ownerName, petName, lastMessage, date }: Mess
   };
 
   const renderDate = () => {
-    return <Span>{formatTime(date)}</Span>;
+    return (
+      <Span colorNeutral30 bodyS>
+        {formatTime(date)}
+      </Span>
+    );
   };
   /***********
    * render()
    ***********/
 
   return (
-    <Row pv6>
+    <Row pv6 justifyBetween>
       <Col>
         <Row alignCenter>
           {renderProfile()}
@@ -96,7 +96,5 @@ const MessageCard = ({ profilePic, ownerName, petName, lastMessage, date }: Mess
     </Row>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default MessageCard;

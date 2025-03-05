@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { SvgXml } from 'react-native-svg';
 
@@ -22,90 +22,42 @@ const CustomImage: React.FC<CustomImageProps> = ({ src, resize = 'contain', stat
   /************
    * Functions
    ************/
-  const getIconSize = () => {
-    if (size && typeof size === 'string') {
-      return { width: IconSizeMap[size], height: IconSizeMap[size] };
-    } else if (size && typeof size === 'object') {
-      return size;
-    }
-    return { width: 0, height: 0 };
-  };
+  const { width, height } = typeof size === 'string' ? { width: IconSizeMap[size], height: IconSizeMap[size] } : size || { width: 50, height: 50 };
 
-  const getSource = () => {
-    if (!src) return blank_image; // Fallback to default image
-
+  const source = (() => {
+    if (!src) return blank_image; // Default fallback image
     if (typeof src === 'object' && 'enabled' in src) {
-      const source = src as IconType.ImageSourceOfState;
-      if (state === 'disabled' && source.disabled) return source.disabled;
-      if (state === 'selected' && source.selected) return source.selected;
-      if (state === 'progress' && source.pressed) return source.pressed;
-      return source.enabled;
+      return src[state] || src.enabled;
     }
-
     return src;
-  };
+  })();
+
+  const isSvg = typeof source === 'string' && source.includes('<svg');
 
   /*********
    * Render
    *********/
-  const source = getSource();
-  const { width, height } = getIconSize();
-
-  // Render SVG Image
-  const renderSvgImage = () => {
-    if (!source) return null;
-
-    if (typeof source === 'object' && 'default' in source) {
-      return <source.default width={width} height={height} />;
-    }
-
-    if (typeof source === 'string' && source.includes('<svg')) {
-      return <SvgXml xml={source} width={width} height={height} />;
-    }
-
-    return null;
-  };
-
-  // Render Normal Image
-  const renderFastImage = () => {
-    if (!source) return null;
-
-    if (typeof source === 'string') {
-      return <FastImage style={{ width, height }} source={{ uri: source }} resizeMode={resize} onError={onLoadError} />;
-    }
-
-    return <FastImage style={{ width, height }} source={source} resizeMode={resize} onError={onLoadError} />;
-  };
-
-  let element = renderSvgImage() || renderFastImage();
-
-  // Fallback if no valid source
-  if (!element) {
-    element = <FastImage style={{ width, height }} source={blank_image} resizeMode={resize} onError={onLoadError} />;
-  }
-
   return (
-    <ImageShapeWrapper shape={shape} width={width}>
-      <View style={[extractPadding(padding)]}>{element}</View>
-    </ImageShapeWrapper>
+    <View style={[styles.wrapper, extractPadding(padding), shape === 'circle' && { borderRadius: width / 2 }]}>
+      {isSvg ? (
+        <SvgXml xml={source as string} width={width} height={height} />
+      ) : (
+        <FastImage
+          style={[{ width, height, borderRadius: shape === 'circle' ? width / 2 : 0 }]}
+          source={typeof source === 'string' ? { uri: source } : source}
+          resizeMode={resize}
+          onError={onLoadError}
+        />
+      )}
+    </View>
   );
 };
 
-interface ImageShaperProps {
-  shape?: IconType.Shape;
-  children: JSX.Element;
-  width: number;
-}
-
-const ImageShapeWrapper: React.FC<ImageShaperProps> = ({ shape, children, width }) => {
-  if (!children) return null;
-
-  if (shape === 'circle') {
-    return <View style={{ borderRadius: width * 0.5, width, height: width, overflow: 'hidden' }}>{children}</View>;
-  }
-
-  return children;
-};
+const styles = StyleSheet.create({
+  wrapper: {
+    overflow: 'hidden', // Ensures border radius works correctly
+  },
+});
 
 export { CustomImage };
 export type { CustomImageProps };
