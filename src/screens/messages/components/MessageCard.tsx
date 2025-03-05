@@ -60,11 +60,18 @@ const MessageCard = ({ profilePic, ownerName, petName, lastMessage, date }: Mess
     return (
       <Col ml10>
         <Span labelL>{ownerName}</Span>
-        <Span labelS>{petName}</Span>
-        <Span bodyM colorNeutral30 mt5>
-          {lastMessage}
+        <Span labelM colorNeutral30 mt2>
+          {petName}
         </Span>
       </Col>
+    );
+  };
+
+  const renderMessage = () => {
+    return (
+      <Span bodyM colorNeutral30 mt5>
+        {lastMessage}
+      </Span>
     );
   };
   /***********
@@ -72,9 +79,14 @@ const MessageCard = ({ profilePic, ownerName, petName, lastMessage, date }: Mess
    ***********/
 
   return (
-    <Row pv6 bgAlertCritical>
-      {renderProfile()}
-      {renderInformation()}
+    <Row pv6>
+      <Col>
+        <Row alignCenter>
+          {renderProfile()}
+          {renderInformation()}
+        </Row>
+        {renderMessage()}
+      </Col>
     </Row>
   );
 };

@@ -116,6 +116,7 @@ const MessagesTabScreen = ({ navigation, route }) => {
   const itemSeparator = () => {
     return <Col h14></Col>;
   };
+
   const renderItem = ({ item }: { item: (typeof mockMessages)[number] }) => {
     return (
       <TouchableOpacity>
