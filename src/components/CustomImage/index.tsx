@@ -1,84 +1,94 @@
 import React from 'react';
 import { View } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import { SvgXml } from 'react-native-svg';
 
 import { ComponentStyle, IconSizeMap, IconType, SpaceStyle } from '@design/type';
 import { extractPadding } from '@design/library';
 
+import { blank_image } from '@images';
+
 interface CustomImageProps {
-  src: IconType.IconSource;
+  src?: IconType.IconSource | null;
   resize?: 'cover' | 'contain' | 'stretch';
   shape?: IconType.Shape;
   state?: ComponentStyle.State;
   size?: ComponentStyle.SizeWithObject | IconType.Style;
   padding?: SpaceStyle.Margin;
-
   onLoadError?: () => void;
 }
 
-const CustomImage: React.FC<CustomImageProps> = ({ src, resize, state = 'normal', size = 'medium', padding, onLoadError, shape }) => {
+const CustomImage: React.FC<CustomImageProps> = ({ src, resize = 'contain', state = 'enabled', size = 'medium', padding, onLoadError, shape }) => {
   /************
-   * function
+   * Functions
    ************/
-
   const getIconSize = () => {
-    try {
-      if (size && typeof size === 'string') {
-        const v = IconSizeMap[size];
-        return { width: v, height: v };
-      }
-
-      if (size && typeof size === 'object') {
-        return size;
-      }
-    } catch (e) {
-      console.error('[CImage]Image size invalid');
+    if (size && typeof size === 'string') {
+      return { width: IconSizeMap[size], height: IconSizeMap[size] };
+    } else if (size && typeof size === 'object') {
+      return size;
     }
-
     return { width: 0, height: 0 };
   };
 
   const getSource = () => {
-    if (typeof src === 'object' && src?.enabled) {
-      const source = src;
+    if (!src) return blank_image; // Fallback to default image
 
+    if (typeof src === 'object' && 'enabled' in src) {
+      const source = src as IconType.ImageSourceOfState;
       if (state === 'disabled' && source.disabled) return source.disabled;
       if (state === 'selected' && source.selected) return source.selected;
       if (state === 'progress' && source.pressed) return source.pressed;
-
       return source.enabled;
     }
 
-    return src as IconType.ImageSource;
+    return src;
   };
 
   /*********
-   * render
+   * Render
    *********/
+  const source = getSource();
+  const { width, height } = getIconSize();
 
+  // Render SVG Image
   const renderSvgImage = () => {
-    const { width, height } = getIconSize();
-    const source = getSource();
-    // @ts-ignore
-    return <source.default width={width} height={height} />;
+    if (!source) return null;
+
+    if (typeof source === 'object' && 'default' in source) {
+      return <source.default width={width} height={height} />;
+    }
+
+    if (typeof source === 'string' && source.includes('<svg')) {
+      return <SvgXml xml={source} width={width} height={height} />;
+    }
+
+    return null;
   };
 
-  // Object.
-  let element = renderSvgImage();
+  // Render Normal Image
+  const renderFastImage = () => {
+    if (!source) return null;
 
-  if (!element) throw new Error('failed make image element');
-  if (padding) {
-    return (
-      <ImageShapeWrapper shape={shape} width={getIconSize().width}>
-        <View style={[extractPadding(padding)]}>{element}</View>
-      </ImageShapeWrapper>
-    );
-  } else {
-    return (
-      <ImageShapeWrapper shape={shape} width={getIconSize().width}>
-        {element}
-      </ImageShapeWrapper>
-    );
+    if (typeof source === 'string') {
+      return <FastImage style={{ width, height }} source={{ uri: source }} resizeMode={resize} onError={onLoadError} />;
+    }
+
+    return <FastImage style={{ width, height }} source={source} resizeMode={resize} onError={onLoadError} />;
+  };
+
+  let element = renderSvgImage() || renderFastImage();
+
+  // Fallback if no valid source
+  if (!element) {
+    element = <FastImage style={{ width, height }} source={blank_image} resizeMode={resize} onError={onLoadError} />;
   }
+
+  return (
+    <ImageShapeWrapper shape={shape} width={width}>
+      <View style={[extractPadding(padding)]}>{element}</View>
+    </ImageShapeWrapper>
+  );
 };
 
 interface ImageShaperProps {
@@ -87,20 +97,14 @@ interface ImageShaperProps {
   width: number;
 }
 
-const ImageShapeWrapper: React.FC<ImageShaperProps> = (props: ImageShaperProps) => {
-  if (!props.children) return null;
+const ImageShapeWrapper: React.FC<ImageShaperProps> = ({ shape, children, width }) => {
+  if (!children) return null;
 
-  const width = props.width;
-
-  const getRadiusForCircle = () => {
-    return width * 0.5;
-  };
-
-  if (props?.shape === 'circle') {
-    return <View style={{ borderRadius: getRadiusForCircle(), width: width, height: width, overflow: 'hidden' }}>{props?.children}</View>;
-  } else {
-    return props?.children;
+  if (shape === 'circle') {
+    return <View style={{ borderRadius: width * 0.5, width, height: width, overflow: 'hidden' }}>{children}</View>;
   }
+
+  return children;
 };
 
 export { CustomImage };

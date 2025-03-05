@@ -1,1 +1,1 @@
-export const blank_image = require('./blank_image.png');
+export const blank_image = require('./blank-image.png');

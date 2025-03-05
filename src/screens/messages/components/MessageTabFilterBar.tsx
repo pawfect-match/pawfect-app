@@ -1,9 +1,10 @@
+import { Col } from '@design/styleAsProps';
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 interface Props {}
 
-const MessageTabFilterBar = ({ navigation, route }) => {
+const MessageTabFilterBar = () => {
   /*********
    * recoil
    *********/
@@ -47,7 +48,7 @@ const MessageTabFilterBar = ({ navigation, route }) => {
    * render()
    ***********/
 
-  return <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}></SafeAreaView>;
+  return <Col h44 bgAlertMajor></Col>;
 };
 
 const styles = StyleSheet.create({});

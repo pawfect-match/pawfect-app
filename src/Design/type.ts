@@ -11,7 +11,7 @@ const Size = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
-  X_LARGE: 'xlarge',
+  X_LARGE: 'xLarge',
 } as const;
 
 declare namespace ComponentStyle {
@@ -47,7 +47,7 @@ const IconSizeMap = {
   small: 18,
   medium: 24,
   large: 32,
-  xlarge: 48,
+  xLarge: 48,
 } as const;
 
 declare namespace IconType {
@@ -86,6 +86,21 @@ const ButtonSizeMap = {
   xlarge: 48,
 } as const;
 
+declare namespace ButtonType {
+  interface Attr {
+    text: TypographyType.Attr;
+    size: ComponentStyle.Size;
+    icon?: IconType.AttrWithOnPress;
+    state?: ComponentStyle.State;
+    theme?: ComponentStyle.Theme;
+    onPress: () => void;
+    isCloseButton?: boolean;
+  }
+  interface AttrWithType extends Attr {
+    type: 'A' | 'B' | 'C';
+  }
+}
+
 const TEXT_INPUT_SIZE_MAP = {
   small: 40,
   medium: 44,
@@ -93,4 +108,4 @@ const TEXT_INPUT_SIZE_MAP = {
 type TEXT_INPUT_SIZE_MAP = (typeof TEXT_INPUT_SIZE_MAP)[keyof typeof TEXT_INPUT_SIZE_MAP];
 
 export { IconSizeMap, ButtonSizeMap, TEXT_INPUT_SIZE_MAP };
-export type { TypographyType, SpaceStyle, ComponentStyle, IconType };
+export type { TypographyType, SpaceStyle, ComponentStyle, IconType, ButtonType };

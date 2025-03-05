@@ -1,7 +1,17 @@
+import { ButtonType } from '@design/type';
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-interface Props {}
+interface BottomModalProps {
+  title?: string;
+  children: JSX.Element;
+  animationInTiming?: number;
+  animationOutTiming?: number;
+  hideModalContentWhileAnimating?: boolean;
+  backdropColor?: string;
+  backdropOpacity?: number;
+  buttons?: ButtonType.AttrWithType[];
+}
 
 const BottomModal = ({ navigation, route }) => {
   /*********
