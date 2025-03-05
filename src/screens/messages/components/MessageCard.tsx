@@ -4,6 +4,7 @@ import { IconType } from '@design/type';
 import { CustomImage } from '@components/CustomImage';
 import { Col, Row, Span } from '@design/styleAsProps';
 import { blank_image } from '@images';
+import formatTime from '@utilities/FormatTime';
 interface MessageCardProps {
   profilePic?: IconType.ImageSource;
   ownerName: string;
@@ -74,6 +75,10 @@ const MessageCard = ({ profilePic, ownerName, petName, lastMessage, date }: Mess
       </Span>
     );
   };
+
+  const renderDate = () => {
+    return <Span>{formatTime(date)}</Span>;
+  };
   /***********
    * render()
    ***********/
@@ -87,6 +92,7 @@ const MessageCard = ({ profilePic, ownerName, petName, lastMessage, date }: Mess
         </Row>
         {renderMessage()}
       </Col>
+      {renderDate()}
     </Row>
   );
 };
